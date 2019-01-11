@@ -1,12 +1,3 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 ## About SIAFNET
 
 SIAFNET is a web application for control the all workflow including: registry, budget, financial, members, patrimony and others. Built in Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects
@@ -38,4 +29,4 @@ If you discover a security vulnerability within SIAFNET, please send an e-mail t
 
 ## License
 
-The SIAFNET is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The SIAFNET is open-sourced software licensed under the [GNU license](https://opensource.org/licenses/GNU).

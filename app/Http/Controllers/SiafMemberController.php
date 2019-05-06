@@ -121,9 +121,7 @@ class SiafMemberController extends Controller
             abort(403,__('messages.br0002'));
         }
 
-        $customers = DB::table('siaf_customer')
-            ->select('*')
-            ->where('full_name', 'like', $request->full_name . '%')
+        $customers = SiafCustomer::where('full_name','like',$request->full_name . '%')
             ->get();
 
         return response()->json([ 'success' => 'The success executed.',

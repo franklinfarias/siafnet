@@ -123,6 +123,16 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('memberOffice/edit/{id}', ['as' => 'memberOffice.edit', 'uses' => 'SiafMemberOfficeController@edit', 'rule' => 'memberOffice/edit']);
     Route::post('memberOffice/store', ['as' => 'memberOffice.store', 'uses' => 'SiafMemberOfficeController@store', 'rule' => 'memberOffice/store']);
     Route::delete('memberOffice/delete/{id}', ['as' => 'memberOffice.delete', 'uses' => 'SiafMemberOfficeController@delete', 'rule' => 'memberOffice/delete']);
+    // CashFlow Routes
+    Route::get('cashFlow/list', ['as' => 'cashFlow.list', 'uses' => 'SiafCashFlowController@index', 'rule' => 'cashFlow/index']);
+    Route::get('cashFlow/create', ['as' => 'cashFlow.create', 'uses' => 'SiafCashFlowController@create', 'rule' => 'cashFlow/create']);
+    Route::get('cashFlow/edit/{id}', ['as' => 'cashFlow.edit', 'uses' => 'SiafCashFlowController@edit', 'rule' => 'cashFlow/edit']);
+    Route::post('cashFlow/store', ['as' => 'cashFlow.store', 'uses' => 'SiafCashFlowController@store', 'rule' => 'cashFlow/store']);
+    Route::delete('cashFlow/delete/{id}', ['as' => 'cashFlow.delete', 'uses' => 'SiafCashFlowController@delete', 'rule' => 'cashFlow/delete']);
+    Route::get('cashFlow/searchCustomer', ['as' => 'cashFlow.searchCustomer', 'uses' => 'SiafCashFlowController@searchCustomer', 'rule' => 'cashFlow/searchCustomer']);
+    Route::get('cashFlow/searchAccountPlan', ['as' => 'cashFlow.searchAccountPlan', 'uses' => 'SiafCashFlowController@searchAccountPlan', 'rule' => 'cashFlow/searchAccountPlan']);
+    Route::get('cashFlow/searchBank', ['as' => 'cashFlow.searchBank', 'uses' => 'SiafCashFlowController@searchBank', 'rule' => 'cashFlow/searchBank']);
+    Route::get('cashFlow/searchSupplier', ['as' => 'cashFlow.searchSupplier', 'uses' => 'SiafCashFlowController@searchSupplier', 'rule' => 'cashFlow/searchSupplier']);
 
 });
 

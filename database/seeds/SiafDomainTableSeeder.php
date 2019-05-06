@@ -15,13 +15,13 @@ class SiafDomainTableSeeder extends Seeder
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_st_ativo_inativo',
             'desc_code' => '0',
-            'desc_status' => 'Inativo',
+            'desc_status' => 'Inactive',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_st_ativo_inativo',
             'desc_code' => '1',
-            'desc_status' => 'Ativo',
+            'desc_status' => 'Active',
             'ind_st_domain' => '1',
         ]);
         // IND_TP_PROFILE
@@ -53,38 +53,38 @@ class SiafDomainTableSeeder extends Seeder
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_notification',
             'desc_code' => '0',
-            'desc_status' => 'Tarefa',
+            'desc_status' => 'Task',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_notification',
             'desc_code' => '1',
-            'desc_status' => 'Notificação',
+            'desc_status' => 'Notification',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_notification',
             'desc_code' => '2',
-            'desc_status' => 'Mensagem',
+            'desc_status' => 'Message',
             'ind_st_domain' => '1',
         ]);
         // IND_ST_NOTIFICATION
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_st_notification',
             'desc_code' => '0',
-            'desc_status' => 'Não lido',
+            'desc_status' => 'Unread',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_st_notification',
             'desc_code' => '1',
-            'desc_status' => 'Lido',
+            'desc_status' => 'Read',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_st_notification',
             'desc_code' => '2',
-            'desc_status' => 'Excluído',
+            'desc_status' => 'Deleted',
             'ind_st_domain' => '1',
         ]);
         // IND_TP_CRON_JOB
@@ -158,65 +158,65 @@ class SiafDomainTableSeeder extends Seeder
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_department',
             'desc_code' => '1',
-            'desc_status' => 'Type 1',
+            'desc_status' => 'Default',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_department',
-            'desc_code' => '2',
-            'desc_status' => 'Type 2',
+            'desc_code' => '999',
+            'desc_status' => 'Depósito de Patrimônio',
             'ind_st_domain' => '1',
         ]);
         // IND_TP_OFFICE
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_office',
             'desc_code' => '1',
-            'desc_status' => 'Type 1',
+            'desc_status' => 'Estatutário',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_office',
             'desc_code' => '2',
-            'desc_status' => 'Type 2',
+            'desc_status' => 'Regimental',
             'ind_st_domain' => '1',
         ]);
         // IND_FNC_ACCOUNT_PLAN
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_fnc_account_plan',
             'desc_code' => '1',
-            'desc_status' => 'Function 1',
+            'desc_status' => 'Normal',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_fnc_account_plan',
             'desc_code' => '2',
-            'desc_status' => 'Function 2',
+            'desc_status' => 'Uso exclusivo',
             'ind_st_domain' => '1',
         ]);
         // IND_TP_ACCOUNT_PLAN
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_account_plan',
             'desc_code' => '1',
-            'desc_status' => 'Type 1',
+            'desc_status' => 'Expenses',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_account_plan',
             'desc_code' => '2',
-            'desc_status' => 'Type 2',
+            'desc_status' => 'Incomes',
             'ind_st_domain' => '1',
         ]);
         // IND_TP_BUDGET
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_budget',
             'desc_code' => '1',
-            'desc_status' => 'Type 1',
+            'desc_status' => 'Global',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_budget',
             'desc_code' => '2',
-            'desc_status' => 'Type 2',
+            'desc_status' => 'Estimation',
             'ind_st_domain' => '1',
         ]);
         // IND_BUDGET_RESTRICT
@@ -319,19 +319,19 @@ class SiafDomainTableSeeder extends Seeder
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_bank',
             'desc_code' => '1',
-            'desc_status' => 'Conta Corrente',
+            'desc_status' => 'Checking Account',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_bank',
             'desc_code' => '2',
-            'desc_status' => 'Conta Poupança',
+            'desc_status' => 'Savings Account',
             'ind_st_domain' => '1',
         ]);
         DB::table('siaf_domain')->insert([
             'name_column' => 'ind_tp_bank',
             'desc_code' => '3',
-            'desc_status' => 'Conta Investimento',
+            'desc_status' => 'Investment Account',
             'ind_st_domain' => '1',
         ]);
         // IND_TP_MEMBER
@@ -414,6 +414,20 @@ class SiafDomainTableSeeder extends Seeder
             'desc_status' => 'Suplente',
             'ind_st_domain' => '1',
         ]);
+        // IND_TP_CASH_FLOW
+        DB::table('siaf_domain')->insert([
+            'name_column' => 'ind_tp_cash_flow',
+            'desc_code' => '1',
+            'desc_status' => 'Cash Flow',
+            'ind_st_domain' => '1',
+        ]);
+        DB::table('siaf_domain')->insert([
+            'name_column' => 'ind_tp_cash_flow',
+            'desc_code' => '2',
+            'desc_status' => 'Conciliate',
+            'ind_st_domain' => '1',
+        ]);
+
     }
 }
 

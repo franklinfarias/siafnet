@@ -92,6 +92,11 @@
                         <a href="{{route('budgetItem.list')}}" class="nav-link  "> @lang('messages.menu-financial-budgetItem') </a>
                     </li>
                 @endcan
+                @can('auth','cashFlow/index')
+                    <li class=" ">
+                        <a href="{{route('cashFlow.list')}}" class="nav-link  "> @lang('messages.menu-financial-cashFlow') </a>
+                    </li>
+                @endcan
             </ul>
         </li>
         <!-- Systems -->

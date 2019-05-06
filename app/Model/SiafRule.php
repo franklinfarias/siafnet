@@ -8,7 +8,7 @@ class SiafRule extends SiafModel
     protected $table = 'siaf_rule';
     protected $primaryKey = 'id_rule';
 
-    /*
+    /**
      * Regras de validacao dos dados do formulario
      */
     public function rules(){

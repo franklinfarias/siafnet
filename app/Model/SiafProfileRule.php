@@ -6,7 +6,7 @@ class SiafProfileRule extends SiafModel
 {
     protected $table = 'siaf_profile_rule';
 
-    /*
+    /**
      * Regras de validacao dos dados do formulario
      */
     public $rules = [

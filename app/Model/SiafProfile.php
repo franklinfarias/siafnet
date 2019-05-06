@@ -27,7 +27,7 @@ class SiafProfile extends SiafModel
     protected $table = 'siaf_profile';
     protected $primaryKey = 'id_profile';
 
-    /*
+    /**
      * Regras de validacao dos dados do formulario
      */
     public function rules(){

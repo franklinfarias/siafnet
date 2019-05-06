@@ -6,9 +6,11 @@ use App\Model\SiafNotification;
 use App\Model\FKSapiens\FksClient;
 use App\Model\SiafUser;
 use App\Model\SiafProfile;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class SiafUserController extends Controller
 {
@@ -195,19 +197,21 @@ class SiafUserController extends Controller
             // Find the user
             $user = SiafUser::find($id);
 
-            // Observer: You should use a leading \ if using a global class inside a namespace.
-            $finfo = new \finfo(FILEINFO_MIME);
-            // Return the image in the response with the correct MIME type
-            return response()->make($user->photo, 200, array(
-                //'Content-Type' => (new finfo(FILEINFO_MIME))->buffer($user->image)
-                'Content-Type' => $finfo->buffer($user->photo)
-            ));
+            if (!empty($user->photo)) {
+                // Observer: You should use a leading \ if using a global class inside a namespace.
+                $finfo = new \finfo(FILEINFO_MIME);
+                // Return the image in the response with the correct MIME type
+                return response()->make($user->photo, 200, array(
+                    //'Content-Type' => (new finfo(FILEINFO_MIME))->buffer($user->image)
+                    'Content-Type' => $finfo->buffer($user->photo)
+                ));
+            } else {
+                $file = Storage::disk('public')->get("avatar-blank.png");
+                return response()->make($file, 200, array());
+            }
         } else {
-            $finfo = new \finfo(FILEINFO_MIME);
-            return response()->make(url("assets/img/avatar-blank.png"), 200, array(
-                //'Content-Type' => (new finfo(FILEINFO_MIME))->buffer($user->image)
-                'Content-Type' => $finfo->file(url("assets/img/avatar-blank.png"))
-            ));
+            $file = Storage::disk('public')->get("avatar-blank.png");
+            return response()->make($file, 200, array());
         }
     }
 

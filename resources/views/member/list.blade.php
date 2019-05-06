@@ -47,22 +47,16 @@
         <div class="page-content-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="search-page search-content-2">
-                        <div class="search-bar">
-                            <div class="form-group">
-                                {!! Form::select('id_customer', $customer, null, ['class' => 'form-control',
-                                'id' => 'search_customer']) !!}
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet light">
+                        <div class="portlet-filters">
+                            <div class="form-group">
+                                <label class="control-label">{!! Form::label('id_customer', __('messages.siaf_member-id_customer'), ['class' => 'control-label']) !!}</label>
+                                <div class="input-icon right">
+                                    {!! Form::select('id_customer', $customer, null, ['class' => 'form-control', 'id' => 'search_customer']) !!}
+                                </div>
+                            </div>
+                        </div>
                         <div class="portlet-title">
                             <div class="caption font-dark">
                                 <a href="{{route('member.create')}}">

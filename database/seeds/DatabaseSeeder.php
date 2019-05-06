@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SiafBankTableSeeder::class);
         $this->call(SiafMemberTableSeeder::class);
         $this->call(SiafMemberOfficeTableSeeder::class);
+        $this->call(SiafCashFlowTableSeeder::class);
     }
 }

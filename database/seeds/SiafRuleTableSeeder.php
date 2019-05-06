@@ -278,6 +278,34 @@ class SiafRuleTableSeeder extends Seeder
         DB::table('siaf_rule')->insert(
             ['name_rule' => 'MemberOffice->Delete','key' => 'memberOffice/delete', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
         );
+        // Cash Flow
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->Index','key' => 'cashFlow/index', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->Create','key' => 'cashFlow/create', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->Edit','key' => 'cashFlow/edit', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->Store','key' => 'cashFlow/store', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->Delete','key' => 'cashFlow/delete', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->SearchCustomer JSON','key' => 'cashFlow/searchCustomer', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->SearchAccountPLan JSON','key' => 'cashFlow/searchAccountPlan', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->SearchBank JSON','key' => 'cashFlow/searchBank', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
+        DB::table('siaf_rule')->insert(
+            ['name_rule' => 'CashFlow->SearchSupplier JSON','key' => 'cashFlow/searchSupplier', 'created_at' => '2014-10-12 00:00:00', 'updated_at' => '2014-10-12 00:00:00']
+        );
 
     }
 }

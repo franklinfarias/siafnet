@@ -27,100 +27,71 @@
         {!! Form::model($company, ['id' => 'frmDados', 'role'=> 'form', 'url' => 'company/store', 'enctype' => 'multipart/form-data']) !!}
             {!! Form::hidden('id_client') !!}
             <div class="form-body">
-                <div class="col-md-5">
-
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('name', __('messages.fks_client-name'), ['class' => 'control-label']) !!}
                             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-name')]) !!}
-                            {!! Form::label('name', __('messages.fks_client-name')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-edit"></i>
-                            </span>
                         </div>
                     </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             {!! Form::label('cpf_cnpj', __('messages.fks_client-cpf_cnpj'), ['class' => 'control-label']) !!}
                             {!! Form::text('cpf_cnpj', null, ['class' => 'form-control', 'placeholder' => '00.000.000/0000-00', 'id' => 'mask_cnpj']) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-edit"></i>
-                            </span>
                         </div>
                     </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
-                            {!! Form::text('address', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-address')]) !!}
-                            {!! Form::label('address', __('messages.fks_client-address')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-edit"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
-                            {!! Form::text('city', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-city')]) !!}
-                            {!! Form::label('city', __('messages.fks_client-city')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-edit"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
-                            {!! Form::text('uf', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-uf')]) !!}
-                            {!! Form::label('uf', __('messages.fks_client-uf')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-edit"></i>
-                            </span>
-                        </div>
-                    </div>
-
                 </div>
-                <div class="col-md-5">
-
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            {!! Form::label('zip_code', __('messages.fks_client-zip_code'), ['class' => 'control-label']) !!}
                             {!! Form::text('zip_code', null, ['class' => 'form-control', 'placeholder' => '00.000-000', 'id' => 'mask_cep']) !!}
-                            {!! Form::label('zip_code', __('messages.fks_client-zip_code')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-edit"></i>
-                            </span>
                         </div>
                     </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('address', __('messages.fks_client-address'), ['class' => 'control-label']) !!}
+                            {!! Form::text('address', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-address'), 'id' => 'endereco']) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {!! Form::label('city', __('messages.fks_client-city'), ['class' => 'control-label']) !!}
+                            {!! Form::text('city', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-city'), 'id' => 'cidade', 'readonly' => '']) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            {!! Form::label('uf', __('messages.fks_client-uf'), ['class' => 'control-label']) !!}
+                            {!! Form::text('uf', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-uf'), 'id' => 'uf','readonly' => '']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('url', __('messages.fks_client-url'), ['class' => 'control-label']) !!}
                             {!! Form::text('url', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-url')]) !!}
-                            {!! Form::label('url', __('messages.fks_client-url')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-globe"></i>
-                            </span>
                         </div>
                     </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('mail', __('messages.fks_client-mail'), ['class' => 'control-label']) !!}
                             {!! Form::email('mail', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-mail')]) !!}
-                            {!! Form::label('mail', __('messages.fks_client-mail')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
-                            </span>
                         </div>
                     </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {!! Form::label('login', __('messages.fks_client-login'), ['class' => 'control-label']) !!}
                             {!! Form::text('login', null, ['class' => 'form-control', 'placeholder' => __('messages.fks_client-login')]) !!}
-                            {!! Form::label('login', __('messages.fks_client-login')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-user"></i>
-                            </span>
                         </div>
                     </div>
-                    <div class="form-group form-md-line-input has-success">
-                        <div class="input-group">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {!! Form::label('password', __('messages.fks_client-password'), ['class' => 'control-label']) !!}
                             {!! Form::password('password', ['class' => 'form-control', 'placeholder' => __('messages.fks_client-password')]) !!}
-                            {!! Form::label('password', __('messages.fks_client-password')) !!}
-                            <span class="input-group-addon">
-                                <i class="fa fa-lock"></i>
-                            </span>
                         </div>
                     </div>
                 </div>

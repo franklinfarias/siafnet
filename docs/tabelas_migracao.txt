@@ -9,6 +9,8 @@ tcargo
 tbanco
 thistorico        |
 tmembro           | 
+tmembro_tcargo
+tpessoa_juridica
 
 
 ------------------------
@@ -24,11 +26,9 @@ titem_pedido_material
 tlancamento
 tlocalizacao
 tmaterial
-tmembro_tcargo
 tpatrimonio
 tpedido
 tpedido_material
-tpessoa_juridica
 tsiaf_net
 ------------------------
 tmsc_aluno

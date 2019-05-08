@@ -63,7 +63,7 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{asset('assets/pages/scripts/profile.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/pages/scripts/form-input-mask.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/pages/scripts/'.app()->getLocale().'/form-input-mask.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/pages/scripts/'.app()->getLocale().'/search_zip_code.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 @endsection

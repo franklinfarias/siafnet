@@ -77,10 +77,22 @@ class SiafCashFlowController extends Controller
         }
 
         $cashFlow = SiafCashFlow::find($id);
+
+        // format attributes
+        $cashFlow->dt_emission = $this->formatDateForDatePicker($cashFlow->dt_emission);
+        $cashFlow->dt_expired = $this->formatDateForDatePicker($cashFlow->dt_expired);
+        $cashFlow->dt_payment = $this->formatDateForDatePicker($cashFlow->dt_payment);
+        $cashFlow->vl_amount = $this->formatCurrentForMaskMoney($cashFlow->vl_amount);
+
         $clients = SiafCashFlow::lookupTable(FksClient::all(),'id_client','name');
+        $bank = [];
+        $accountPlan = [];
+        $supplier = [];
+        $customer = [];
         $indTpCashFlow = SiafCashFlow::lookupDomain('ind_tp_cash_flow');
         $indStCashFlow = SiafCashFlow::lookupDomain('ind_st_ativo_inativo');
-        return view('bank.edit', compact('cashFlow','clients', 'indTpCashFlow', 'indStCashFlow'));
+        return view('cashFlow.create', compact('cashFlow','clients',
+            'bank', 'accountPlan', 'supplier', 'customer', 'indTpCashFlow', 'indStCashFlow'));
     }
 
     public function store(Request $request)
@@ -90,8 +102,6 @@ class SiafCashFlowController extends Controller
         }
 
         $dataForm = $request->all();
-
-        dd($request);
 
         if (!empty($dataForm['id_client']) && ($dataForm['id_client'] <= 0))
             $idClient = Auth::user()->id_client;
@@ -104,6 +114,14 @@ class SiafCashFlowController extends Controller
             $obj = new SiafCashFlow;
 
         $obj->id_client = $idClient;
+
+        //
+        $obj->dt_emission = $this->removeFormatDatePicker($dataForm['dt_emission']);
+        $obj->dt_expired = $this->removeFormatDatePicker($dataForm['dt_expired']);
+        $obj->dt_payment = $this->removeFormatDatePicker($dataForm['dt_payment']);
+        $obj->vl_amount = $this->removeFormatMaskMoney($dataForm['vl_amount']);
+
+        dd($obj);
 
         $obj->ind_tp_cash_flow = $dataForm['ind_tp_cash_flow'];
         $obj->ind_st_cash_flow = $dataForm['ind_st_cash_flow'];

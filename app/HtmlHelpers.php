@@ -94,3 +94,34 @@ if ( ! function_exists('formatCodeRegistry'))
         return $fmt;
     }
 }
+
+if ( ! function_exists('formatDate'))
+{
+    function formatDate($date) {
+        $fmt = '';
+        if (!empty($date)){
+            $fmt = preg_split('/-/', $date);
+            if (\App::isLocale('br')){
+                $fmt = $fmt[2] . '/' . $fmt[1] . '/' . $fmt[0];
+            } else {
+                $fmt = $fmt[1] . '/' . $fmt[2] . '/' . $fmt[0];
+            }
+        }
+        return $fmt;
+    }
+}
+
+if ( ! function_exists('formatCurrency'))
+{
+    function formatCurrency($currency) {
+        $newValue = '0.00';
+        if (!empty($currency)){
+            if (\App::isLocale('br')){
+                $newValue = number_format($currency, '2', ',', '.');
+            } else {
+                $newValue = number_format($currency, '2', '.', ',');
+            }
+        }
+        return $newValue;
+    }
+}

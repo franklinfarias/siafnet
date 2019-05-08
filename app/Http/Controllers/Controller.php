@@ -51,8 +51,8 @@ class Controller extends BaseController
     }
 
     /**
-     * @param $monthYear on format MM/YYYY
-     * @return string YYYYMM
+     * @param $value
+     * @return string
      */
     public function formatCurrent($value){
         if (\App::isLocale('br')){
@@ -61,6 +61,65 @@ class Controller extends BaseController
         return $value;
     }
 
+    /**
+     *
+     * @param $value
+     * @return string
+     */
+    public function formatCurrentForMaskMoney($value){
+        $newValue = $value;
+        if (\App::isLocale('br')){
+            $newValue = str_replace('.', '',  str_replace('.', ',', $value));
+        }
+        return $newValue;
+    }
+
+    /**
+     *
+     * @param $date on format YYYY-MM-DD
+     * @return string by localization
+     */
+    public function formatDateForDatePicker($date){
+        if (empty($date))
+            return '';
+        $dtFormat = preg_split("/-/", $date);
+        if (\App::isLocale('br')){
+            $value = $dtFormat[2].'/'.$dtFormat[1].'/'.$dtFormat[0];
+        } else {
+            $value = $dtFormat[1].'/'.$dtFormat[2].'/'.$dtFormat[0];
+        }
+        return $value;
+    }
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    public function removeFormatDatePicker($date){
+        if (empty($date))
+            return '';
+        $dtFormat = preg_split("/\//", $date);
+        if (\App::isLocale('br')){
+            $value = $dtFormat[2].'-'.$dtFormat[1].'-'.$dtFormat[0];
+        } else {
+            $value = $dtFormat[2].'-'.$dtFormat[0].'-'.$dtFormat[1];
+        }
+        return $value;
+    }
+
+    /**
+     *
+     * @param
+     * @return
+     */
+    public function removeFormatMaskMoney($value){
+        $newValue = $value;
+        if (\App::isLocale('br')){
+            $newValue = str_replace(',', '.',  str_replace('.', '', $value));
+        }
+        return $newValue;
+    }
 
 
 }

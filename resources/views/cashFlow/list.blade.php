@@ -113,8 +113,8 @@
                                     <td>{{$cashFlow->accountPlan->code . ' - ' . $cashFlow->accountPlan->name}}</td>
                                     <td>{{$cashFlow->bank->name}}</td>
                                     <td>{{$cashFlow->num_document}}</td>
-                                    <td>{{$cashFlow->dt_expired}}</td>
-                                    <td>{{$cashFlow->vl_amount}}</td>
+                                    <td>{{formatDate($cashFlow->dt_expired)}}</td>
+                                    <td>{{formatCurrency($cashFlow->vl_amount)}}</td>
                                     <td>
                                         <a href="{{route('cashFlow.edit',[$cashFlow->id_cash_flow])}}" class="edit" data-toggle="tooltip" title="@lang('messages.edit')"><i class="fa fa-pencil"></i></a>
                                         <a href="javascript:confirmDelete('{{route('cashFlow.delete',[$cashFlow->id_cash_flow])}}','{{csrf_token()}}');" class="delete" data-toggle="tooltip" title="@lang('messages.delete')"><i class="fa fa-trash"></i></a>

@@ -84,27 +84,39 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label class="control-label">{!! Form::label('dt_emission', __('messages.siaf_cash_flow-dt_emission'), ['class' => 'control-label']) !!}</label>
-                            <div class="input-icon right">
-                                <i class="fa fa-info-circle tooltips" data-original-title="{!! __('messages.siaf_cash_flow-dt_emission') !!}" data-container="body"></i>
-                                {!! Form::date('dt_emission', null, ['class' => 'form-control', 'placeholder' => __('messages.siaf_cash_flow-dt_emission')]) !!}
+                            <div class="input-group input-small date date-picker">
+                                {!! Form::text('dt_emission', null, ['class' => 'form-control date-picker', 'placeholder' => __('messages.siaf_cash_flow-dt_emission'), 'readonly']) !!}
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label class="control-label">{!! Form::label('dt_expired', __('messages.siaf_cash_flow-dt_expired'), ['class' => 'control-label']) !!}</label>
-                            <div class="input-icon right">
-                                <i class="fa fa-info-circle tooltips" data-original-title="{!! __('messages.siaf_cash_flow-dt_expired') !!}" data-container="body"></i>
-                                {!! Form::date('dt_expired', null, ['class' => 'form-control', 'placeholder' => __('messages.siaf_cash_flow-dt_expired')]) !!}
+                            <div class="input-group input-small date date-picker">
+                                {!! Form::text('dt_expired', null, ['class' => 'form-control date-picker', 'placeholder' => __('messages.siaf_cash_flow-dt_expired'), 'readonly']) !!}
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label class="control-label">{!! Form::label('dt_payment', __('messages.siaf_cash_flow-dt_payment'), ['class' => 'control-label']) !!}</label>
-                            <div class="input-icon right">
-                                <i class="fa fa-info-circle tooltips" data-original-title="{!! __('messages.siaf_cash_flow-dt_payment') !!}" data-container="body"></i>
-                                {!! Form::date('dt_payment', null, ['class' => 'form-control', 'placeholder' => __('messages.siaf_cash_flow-dt_payment')]) !!}
+                            <div class="input-group input-small date date-picker">
+                                {!! Form::text('dt_payment', null, ['class' => 'form-control date-picker', 'placeholder' => __('messages.siaf_cash_flow-dt_payment'), 'readonly']) !!}
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -114,7 +126,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label class="control-label">{!! Form::label('vl_amount', __('messages.siaf_cash_flow-vl_amount'), ['class' => 'control-label']) !!}</label>
-                                {!! Form::text('vl_amount', null, ['class' => 'form-control', 'placeholder' => __('messages.siaf_cash_flow-vl_amount')]) !!}
+                                {!! Form::text('vl_amount', null, ['class' => 'mask_currency form-control', 'placeholder' => __('messages.siaf_cash_flow-vl_amount')]) !!}
                             </div>
                         </div>
                     </div>
@@ -122,7 +134,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label class="control-label">{!! Form::label('vl_payment', __('messages.siaf_cash_flow-vl_payment'), ['class' => 'control-label']) !!}</label>
-                                {!! Form::text('vl_payment', null, ['class' => 'form-control', 'placeholder' => __('messages.siaf_cash_flow-vl_payment')]) !!}
+                                {!! Form::text('vl_payment', null, ['class' => 'mask_currency form-control', 'placeholder' => __('messages.siaf_cash_flow-vl_payment')]) !!}
                             </div>
                         </div>
                     </div>
@@ -148,7 +160,7 @@
                         <div class="form-group">
                             <label class="control-label">{!! Form::label('comment', __('messages.siaf_cash_flow-comment'), ['class' => 'control-label']) !!}</label>
 
-                            <div name="summernote" id="cashFlow-comment"> </div>
+                            {!! Form::textArea('comment', null, ['class' => 'wysihtml5 form-control', 'placeholder' => __('messages.siaf_cash_flow-comment')]) !!}
                         </div>
                     </div>
                 </div>

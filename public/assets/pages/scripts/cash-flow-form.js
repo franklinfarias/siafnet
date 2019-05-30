@@ -6,7 +6,11 @@ $(document).ready(function () {
         tags: [],
         ajax: {
             url: "/cashFlow/searchCustomer",
-            data: {"full_name":$(this).val()},
+            data: function (params) {
+                return {
+                    name: params.term, // search text
+                };
+            },
             processResults: function(obj) {
                 return {
                     results: $.map(JSON.parse(obj.data), function(item, index) {
@@ -25,7 +29,11 @@ $(document).ready(function () {
         tags: [],
         ajax: {
             url: "/cashFlow/searchAccountPlan",
-            data: {"name":$(this).val()},
+            data: function (params) {
+                return {
+                    name: params.term, // search text
+                };
+            },
             processResults: function(obj) {
                 return {
                     results: $.map(JSON.parse(obj.data), function(item, index) {
@@ -44,7 +52,11 @@ $(document).ready(function () {
         tags: [],
         ajax: {
             url: "/cashFlow/searchBank",
-            data: {"name":$(this).val()},
+            data: function (params) {
+                return {
+                    name: params.term, // search text
+                };
+            },
             processResults: function(obj) {
                 return {
                     results: $.map(JSON.parse(obj.data), function(item, index) {
@@ -63,7 +75,11 @@ $(document).ready(function () {
         tags: [],
         ajax: {
             url: "/cashFlow/searchSupplier",
-            data: {"name":$(this).val()},
+            data: function (params) {
+                return {
+                    name: params.term, // search text
+                };
+            },
             processResults: function(obj) {
                 return {
                     results: $.map(JSON.parse(obj.data), function(item, index) {

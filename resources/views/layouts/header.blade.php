@@ -115,17 +115,17 @@ $messages = \App\Http\Controllers\Controller::getAllMessagesUser();
                                     <i class="icon-user"></i> @lang('messages.my-profile') </a>
                             </li>
                             <li>
-                                <a href="app_calendar.html">
+                                <a href="#">
                                     <i class="icon-calendar"></i> @lang('messages.my-calendar') </a>
                             </li>
                             <li>
-                                <a href="app_inbox.html">
+                                <a href="#">
                                     <i class="icon-envelope-open"></i> @lang('messages.my-inbox')
                                     <span class="badge badge-danger"> 3 </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="app_todo_2.html">
+                                <a href="#">
                                     <i class="icon-rocket"></i> @lang('messages.my-tasks')
                                     <span class="badge badge-success"> 7 </span>
                                 </a>
@@ -145,7 +145,7 @@ $messages = \App\Http\Controllers\Controller::getAllMessagesUser();
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="page_user_lock_1.html">
+                                <a href="#">
                                     <i class="icon-lock"></i> @lang('messages.lock-screen') </a>
                             </li>
                             <li>
@@ -156,10 +156,7 @@ $messages = \App\Http\Controllers\Controller::getAllMessagesUser();
                     </li>
                     <!-- END USER LOGIN DROPDOWN -->
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                    <li class="dropdown dropdown-extended quick-sidebar-toggler">
-                        <span class="sr-only">@lang('messages.toggle-quick-sidebar')</span>
-                        <i class="icon-logout"></i>
-                    </li>
+
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>
             </div>

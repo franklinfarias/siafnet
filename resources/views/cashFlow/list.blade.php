@@ -75,6 +75,14 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-3">
+                                    <div class="clearfix">
+                                        <a class="btn green-sharp btn-outline" href="#">
+                                            <i class="fa fa-undo"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -100,6 +108,8 @@
                                     <th class="all">@lang('messages.siaf_cash_flow-dt_expired')</th>
                                     <th class="all">@lang('messages.siaf_cash_flow-vl_amount')</th>
                                     <th class="min-tablet">@lang('messages.actions')</th>
+                                    <th class="none">@lang('messages.siaf_cash_flow-id_supplier')</th>
+                                    <th class="none">@lang('messages.siaf_cash_flow-id_customer')</th>
                                     <th class="none">@lang('messages.siaf_cash_flow-dt_payment')</th>
                                     <th class="none">@lang('messages.siaf_cash_flow-vl_payment')</th>
                                     <th class="none">@lang('messages.siaf_cash_flow-ind_tp_cash_flow')</th>
@@ -119,8 +129,10 @@
                                         <a href="{{route('cashFlow.edit',[$cashFlow->id_cash_flow])}}" class="edit" data-toggle="tooltip" title="@lang('messages.edit')"><i class="fa fa-pencil"></i></a>
                                         <a href="javascript:confirmDelete('{{route('cashFlow.delete',[$cashFlow->id_cash_flow])}}','{{csrf_token()}}');" class="delete" data-toggle="tooltip" title="@lang('messages.delete')"><i class="fa fa-trash"></i></a>
                                     </td>
-                                    <td>{{$cashFlow->dt_payment}}</td>
-                                    <td>{{$cashFlow->vl_payment}}</td>
+                                    <td>{{(!empty($cashFlow->supplier)?$cashFlow->supplier->name:__('messages.select-empty'))}}</td>
+                                    <td>{{(!empty($cashFlow->customer)?$cashFlow->customer->full_name:__('messages.select-empty'))}}</td>
+                                    <td>{{formatDate($cashFlow->dt_payment)}}</td>
+                                    <td>{{formatCurrency($cashFlow->vl_payment)}}</td>
                                     <td>{{$cashFlow->indTpCashFlow()}}</td>
                                     <td>{{$cashFlow->indStCashFlow()}}</td>
                                     <td>{{$cashFlow->comment}}</td>

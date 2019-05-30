@@ -32,7 +32,7 @@
     <!-- END PAGE HEAD-->
 
     <!-- BEGIN PAGE CONTENT BODY -->
-    <div class="page-content" style="min-height: 316px;">
+    <div class="page-content">
         <div class="container">
             <!-- BEGIN PAGE CONTENT INNER -->
             <div class="page-content-inner">
@@ -53,6 +53,8 @@
             <!-- END PAGE CONTENT INNER -->
         </div>
     </div>
+    <!-- END PAGE CONTENT BODY -->
+
     <!-- BEGIN PAGE LEVEL PLUGINS -->
 
     <!-- END PAGE LEVEL PLUGINS -->

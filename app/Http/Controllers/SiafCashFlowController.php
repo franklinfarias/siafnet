@@ -10,8 +10,10 @@ use App\Model\SiafCustomer;
 use App\Model\SiafMember;
 use App\Model\SiafSupplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class SiafCashFlowController extends Controller
 {
@@ -31,7 +33,7 @@ class SiafCashFlowController extends Controller
         }
         // Search by: Account Plan
         if (!empty($request->act)){
-            $accountPlan = SiafAccountPlan::lookupTable(SiafAccountPlan::find($request->act)->get(),
+            $accountPlan = SiafAccountPlan::lookupTable(SiafAccountPlan::where('id_account_plan',$request->act)->get(),
                 'id_account_plan', 'name', false);
             $cashs = SiafCashFlow::where('id_account_plan',$request->act)->get();
         } else {
@@ -39,7 +41,7 @@ class SiafCashFlowController extends Controller
         }
         // Search by: Bank
         if (!empty($request->bnk)){
-            $bank = SiafBank::lookupTable(SiafBank::find($request->bnk)->get(),
+            $bank = SiafBank::lookupTable(SiafBank::where('id_bank', $request->bnk)->get(),
                 'id_bank', 'name', false);
             $cashs = SiafCashFlow::where('id_bank',$request->bnk)->get();
         } else {
@@ -110,21 +112,28 @@ class SiafCashFlowController extends Controller
 
         if (array_key_exists('id_cash_flow', $dataForm) && (!empty($dataForm['id_cash_flow'])))
             $obj = SiafCashFlow::find($dataForm['id_cash_flow']);
-        else
+        else {
             $obj = new SiafCashFlow;
-
-        $obj->id_client = $idClient;
+            $obj->created_by = Auth::user()->id_user;
+        }
 
         //
+        $obj->id_client = $idClient;
+        $obj->id_bank = 0;
+        $obj->id_account_plan = 0;
+        $obj->id_supllier = 0;
+        $obj->id_customer = 0;
+        $obj->num_document = $dataForm['num_document'];
         $obj->dt_emission = $this->removeFormatDatePicker($dataForm['dt_emission']);
         $obj->dt_expired = $this->removeFormatDatePicker($dataForm['dt_expired']);
         $obj->dt_payment = $this->removeFormatDatePicker($dataForm['dt_payment']);
         $obj->vl_amount = $this->removeFormatMaskMoney($dataForm['vl_amount']);
-
-        dd($obj);
-
+        $obj->vl_payment = $this->removeFormatMaskMoney($dataForm['vl_payment']);
+        $obj->comment = $dataForm['comment'];
+        $obj->updated_by = Auth::user()->id_user;
         $obj->ind_tp_cash_flow = $dataForm['ind_tp_cash_flow'];
         $obj->ind_st_cash_flow = $dataForm['ind_st_cash_flow'];
+        //dd($obj);
 
         /*
          * Validação de Dados
@@ -133,7 +142,7 @@ class SiafCashFlowController extends Controller
          * 2. usando o contrutor do Validator para personalizar as mensagens;
          */
         // 1º Método
-        $this->validate($request, $obj->rules());
+        $this->validate($request, $obj->rules(), [], $obj->attributes());
 
         $result = $obj->save();
 
@@ -161,7 +170,7 @@ class SiafCashFlowController extends Controller
             abort(403,__('messages.br0002'));
         }
 
-        $customers = SiafCustomer::where('full_name','like',$request->full_name . '%')
+        $customers = SiafCustomer::where('full_name','like', '%' . $request->full_name . '%')
             ->get();
 
         return response()->json([ 'success' => 'The success executed.',
@@ -173,11 +182,12 @@ class SiafCashFlowController extends Controller
             abort(403,__('messages.br0002'));
         }
 
-        $obj = SiafAccountPlan::where('name','like',$request->name . '%')
+        $obj = SiafAccountPlan::where('name', 'like', '%' . $request->name . '%')
             ->get();
 
         return response()->json([ 'success' => 'The success executed.',
             'data' => json_encode($obj)]);
+
     }
 
     public function searchBank(Request $request){
@@ -185,7 +195,7 @@ class SiafCashFlowController extends Controller
             abort(403,__('messages.br0002'));
         }
 
-        $obj = SiafBank::where('name','like',$request->name . '%')
+        $obj = SiafBank::where('name','like', '%' . $request->name . '%')
             ->get();
 
         return response()->json([ 'success' => 'The success executed.',
@@ -197,7 +207,7 @@ class SiafCashFlowController extends Controller
             abort(403,__('messages.br0002'));
         }
 
-        $obj = SiafSupplier::where('name','like',$request->name . '%')
+        $obj = SiafSupplier::where('name','like', '%' . $request->name . '%')
             ->get();
 
         return response()->json([ 'success' => 'The success executed.',

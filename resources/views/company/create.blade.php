@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('subtitle',__('messages.siaf_rule-model-subtitle-create'))
+@section('subtitle',__('messages.fks_client-model-subtitle-create'))
 @section('content')
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -14,8 +14,8 @@
     <div class="container">
         <!-- BEGIN PAGE TITLE -->
         <div class="page-title">
-            <h1>@lang('messages.siaf_rule-model-name')
-                <small>@lang('messages.siaf_rule-model-subtitle-create')</small>
+            <h1>@lang('messages.fks_client-model-name')
+                <small>@lang('messages.fks_client-model-subtitle-create')</small>
             </h1>
         </div>
         <!-- END PAGE TITLE -->
@@ -25,11 +25,11 @@
                 <!-- BEGIN PAGE BREADCRUMBS -->
                 <ul class="page-breadcrumb breadcrumb">
                     <li>
-                        <a href="{{URL::to('rule/list')}}">@lang('messages.siaf_rule-breadcrumb')</a>
+                        <a href="{{URL::to('company/list')}}">@lang('messages.fks_client-breadcrumb')</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <span>@lang('messages.siaf_rule-breadcrumb-list')</span>
+                        <span>@lang('messages.fks_client-breadcrumb-list')</span>
                     </li>
                 </ul>
                 <!-- END PAGE BREADCRUMBS -->
@@ -46,7 +46,7 @@
         <div class="page-content-inner">
             <div class="row">
                 <div class="col-md-12">
-                    @include('rule._form')
+                    @include('company._form')
                 </div>
             </div>
         </div>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Model\SiafUserAuth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class LoginController extends Controller
 {
@@ -47,5 +50,22 @@ class LoginController extends Controller
         return 'login';
     }
 
+    /**
+     * Handle an authentication attempt.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  SiafUserAuth $user
+     *
+     * @return Response
+     */
+    public function authenticated(Request $request, $user)
+    {
+        if ($user->ind_st_user != '1') {
+            auth()->logout();
+
+            return back()->with('warning', __('messages.br0003'));
+        }
+        return redirect()->intended($this->redirectTo);
+    }
 
 }

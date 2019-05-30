@@ -20,7 +20,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 
 <head>
-    <meta charset="utf-8" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="UTF-8" http-equiv="encoding">
     <title>
         {{ config('app.name', 'Laravel') }} - @yield('subtitle')
     </title>

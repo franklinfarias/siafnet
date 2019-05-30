@@ -16,8 +16,9 @@ class SiafBank extends SiafModel
     public function rules()
     {
         return [
-            'code' => 'required|min:3|max:100|unique:siaf_bank,code' .
-                ($this->id_bank?','.$this->id_bank.',id_bank,id_client,'.$this->id_client:',NULL,id_bank,id_client,'.$this->id_client),
+            'code' => 'required|min:3|max:10',
+            //'code' => 'required|min:3|max:100|unique:siaf_bank,code' .
+            //    ($this->id_bank?','.$this->id_bank.',id_bank,id_client,'.$this->id_client:',NULL,id_bank,id_client,'.$this->id_client),
             'name' => 'required|min:3|max:100|unique:siaf_account_plan,name' .
                 ($this->id_bank?','.$this->id_bank.',id_bank,id_client,'.$this->id_client:',NULL,id_bank,id_client,'.$this->id_client),
             'ind_tp_bank' => 'required',

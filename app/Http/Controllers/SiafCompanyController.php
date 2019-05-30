@@ -21,7 +21,7 @@ class SiafCompanyController extends Controller
     }
 
     public function create() {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -88,7 +88,7 @@ class SiafCompanyController extends Controller
     }
 
     public function delete(Request $request) {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth')  || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 

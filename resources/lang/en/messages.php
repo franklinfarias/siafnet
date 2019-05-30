@@ -2,7 +2,7 @@
 
 return [
     'welcome' => 'Welcome to SIAFNET',
-    'select-empty' => '< Nenhum >',
+    'select-empty' => '< Empty >',
     'login-to-your-account' => 'Login to your account',
     'enter-any-username-and-password' => 'Enter any username and password',
     'username' => 'Username',
@@ -115,8 +115,9 @@ return [
     'error-403-msg1' => 'Oops! Access denied.',
 
     // Business rule
-    'br0001' => 'User cannot access this feature, beacause not have permissions. Contact the Administrator and request the permissions for this action.',
-    'br0002' => 'User cannot access this feature, beacause not have permissions. Contact the Administrator of the system in your company and request the permissions for this action.',
+    'br0001' => 'User cannot access this feature, because not have permissions. Contact the Administrator and request the permissions for this action.',
+    'br0002' => 'User cannot access this feature, because not have permissions. Contact the Administrator of the system in your company and request the permissions for this action.',
+    'br0003' => 'You need have account active.',
 
     // Model FksClient
     'fks_client-model-name' => 'Clients',

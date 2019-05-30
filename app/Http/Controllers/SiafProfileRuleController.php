@@ -6,13 +6,14 @@ use App\Model\SiafProfile;
 use App\Model\SiafProfileRule;
 use App\Model\SiafRule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class SiafProfileRuleController extends Controller
 {
     public function index(){
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -22,7 +23,7 @@ class SiafProfileRuleController extends Controller
     }
 
     public function create() {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -36,7 +37,7 @@ class SiafProfileRuleController extends Controller
 
     public function store(Request $request)
     {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -66,7 +67,7 @@ class SiafProfileRuleController extends Controller
     }
 
     public function delete(Request $request) {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 

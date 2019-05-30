@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Model\SiafProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class SiafProfileController extends Controller
 {
     public function index(){
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -19,7 +20,7 @@ class SiafProfileController extends Controller
     }
 
     public function create() {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -29,7 +30,7 @@ class SiafProfileController extends Controller
     }
 
     public function edit($id) {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -40,7 +41,7 @@ class SiafProfileController extends Controller
 
     public function store(Request $request)
     {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 
@@ -71,7 +72,7 @@ class SiafProfileController extends Controller
     }
 
     public function delete(Request $request) {
-        if (Gate::denies('auth')) {
+        if (Gate::denies('auth') || (Auth::user()->id_client != 1)) {
             abort(403,__('messages.br0002'));
         }
 

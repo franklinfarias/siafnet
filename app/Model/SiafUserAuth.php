@@ -25,4 +25,6 @@ class SiafUserAuth extends SiafModel implements AuthenticatableContract, CanRese
     //public function notifications(){
     //    return $this->hasMany('App\Model\SiafNotification','id_user_destiny','id_user');
     //}
+
+
 }
